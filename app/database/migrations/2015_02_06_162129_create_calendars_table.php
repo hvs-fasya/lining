@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateCalendarsTable extends Migration {
+
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		//создание таблицы с записями календаря;
+        Schema::create('calendars',function($table)
+        {
+        $table -> increments('id');
+        $table -> string('title',150);
+        $table -> string('date',100);
+        $table -> text('body');
+        $table -> timestamps();
+        });
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		//
+        Schema::drop('calendars');
+	}
+
+
+}
